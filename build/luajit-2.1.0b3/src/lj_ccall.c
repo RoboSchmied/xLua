@@ -529,7 +529,7 @@
 #define CCALL_HANDLE_COMPLEXARG \
   /* Pass complex by value in 2 or 4 GPRs. */
 
-/* Position of soft-float 'float' return value depends on endianess.  */
+/* Position of soft-float 'float' return value depends on endianness.  */
 #define CCALL_HANDLE_RET \
   if (ctype_isfp(ctr->info) && ctr->size == sizeof(float)) \
     sp = (uint8_t *)cc->gpr + LJ_ENDIAN_SELECT(0, 4);

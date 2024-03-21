@@ -206,7 +206,7 @@ typedef struct {
     isbe = true
   end
 
-  -- Handle different host/target endianess.
+  -- Handle different host/target endianness.
   local function f32(x) return x end
   local f16, fofs = f32, f32
   if ffi.abi("be") ~= isbe then

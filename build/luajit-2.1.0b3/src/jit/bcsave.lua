@@ -226,7 +226,7 @@ typedef struct {
   local ai = assert(map_arch[ctx.arch])
   local is64, isbe = ai.b == 64, ai.e == "be"
 
-  -- Handle different host/target endianess.
+  -- Handle different host/target endianness.
   local function f32(x) return x end
   local f16, fofs = f32, f32
   if ffi.abi("be") ~= isbe then

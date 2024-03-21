@@ -10,7 +10,7 @@
 
 /* -- Target definitions -------------------------------------------------- */
 
-/* Target endianess. */
+/* Target endianness. */
 #define LUAJIT_LE	0
 #define LUAJIT_BE	1
 

@@ -156,7 +156,7 @@ static void bcread_dbg(LexState *ls, GCproto *pt, MSize sizedbg)
 {
   void *lineinfo = (void *)proto_lineinfo(pt);
   bcread_block(ls, lineinfo, sizedbg);
-  /* Swap lineinfo if the endianess differs. */
+  /* Swap lineinfo if the endianness differs. */
   if (bcread_swap(ls) && pt->numline >= 256) {
     MSize i, n = pt->sizebc-1;
     if (pt->numline < 65536) {
@@ -284,7 +284,7 @@ static void bcread_bytecode(LexState *ls, GCproto *pt, MSize sizebc)
   bc[0] = BCINS_AD((pt->flags & PROTO_VARARG) ? BC_FUNCV : BC_FUNCF,
 		   pt->framesize, 0);
   bcread_block(ls, bc+1, (sizebc-1)*(MSize)sizeof(BCIns));
-  /* Swap bytecode instructions if the endianess differs. */
+  /* Swap bytecode instructions if the endianness differs. */
   if (bcread_swap(ls)) {
     MSize i;
     for (i = 1; i < sizebc; i++) bc[i] = lj_bswap(bc[i]);
@@ -297,7 +297,7 @@ static void bcread_uv(LexState *ls, GCproto *pt, MSize sizeuv)
   if (sizeuv) {
     uint16_t *uv = proto_uv(pt);
     bcread_block(ls, uv, sizeuv*2);
-    /* Swap upvalue refs if the endianess differs. */
+    /* Swap upvalue refs if the endianness differs. */
     if (bcread_swap(ls)) {
       MSize i;
       for (i = 0; i < sizeuv; i++)
